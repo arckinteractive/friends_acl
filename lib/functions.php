@@ -139,7 +139,7 @@ function _fix_friend_access() {
 		user_login(null, null, $user);
 		
 		$count++;
-		if (!($count % 200)) {
+		if (!($count % 100)) {
 			elgg_set_plugin_setting('friends_fix_time', time(), PLUGIN_ID); // update the action time every 200 entities
 		}
 	}
