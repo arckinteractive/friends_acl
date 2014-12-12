@@ -63,6 +63,9 @@ function update_acl($user) {
 	);
 
 	$batch = new ElggBatch('elgg_get_entities_from_relationship', $options, null, 100);
+	
+	// add the user
+	add_user_to_access_collection($user->guid, $user->friends_acl);
 
 	foreach ($batch as $f) {
 		add_user_to_access_collection($f->guid, $user->friends_acl);

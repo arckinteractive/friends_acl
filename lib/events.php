@@ -13,6 +13,7 @@ function user_login($e, $t, $user) {
 	
 	if ($id) {
 		$user->friends_acl = $id;
+		add_user_to_access_collection($user->guid, $user->friends_acl);
 		
 		if ($GLOBALS['shutdown_flag']) {
 			// we're already shut down, lets update the acl
