@@ -18,6 +18,15 @@ function write_access($h, $t, $r, $p) {
 	if (!$user || !$user->friends_acl) {
 		return $r;
 	}
+
+	$page_owner = elgg_get_page_owner_entity();
+	if ($page_owner instanceof ElggGroup) {
+		if ($page_owner->canWriteToContainer($user->guid)) {
+			// don't want to change in group context
+			// as ACCESS_FRIENDS is removed later
+			return $r;
+		}
+	}
 	
 	if ($r[ACCESS_FRIENDS]) {
 		

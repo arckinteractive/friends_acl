@@ -1,4 +1,7 @@
 === Version History ===
 
+1.0.1 (12/18/2014):
+ - fix issue with friends acl showing in group context
+
 1.0 (12/09/2014):
  - Initial release

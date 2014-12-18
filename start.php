@@ -17,7 +17,7 @@ function init() {
 	elgg_register_event_handler('create', 'friend', __NAMESPACE__ . '\\user_add_friend', 9999);
 	elgg_register_event_handler('delete', 'friend', __NAMESPACE__ . '\\user_remove_friend', 9999);
 	
-	elgg_register_plugin_hook_handler('access:collections:write', 'user', __NAMESPACE__ . '\\write_access');
+//	elgg_register_plugin_hook_handler('access:collections:write', 'user', __NAMESPACE__ . '\\write_access', 999);
 	
 	
 	elgg_register_action('friends_acl/content_fix', __DIR__ . '/actions/content_fix.php', 'admin');
