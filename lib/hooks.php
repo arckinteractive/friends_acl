@@ -20,14 +20,14 @@ function write_access($h, $t, $r, $p) {
 	}
 
 	$page_owner = elgg_get_page_owner_entity();
-	if ($page_owner instanceof ElggGroup) {
+	if (elgg_instanceof($page_owner, 'group')) {
 		if ($page_owner->canWriteToContainer($user->guid)) {
 			// don't want to change in group context
 			// as ACCESS_FRIENDS is removed later
 			return $r;
 		}
 	}
-	
+
 	if ($r[ACCESS_FRIENDS]) {
 		
 		/**
