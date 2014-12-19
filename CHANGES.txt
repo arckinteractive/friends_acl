@@ -1,5 +1,8 @@
 === Version History ===
 
+1.0.3 (12/19/2014):
+ - fix issue with login check if plugin is deactivated and reactivated with content creation in between
+
 1.0.2 (12/18/2014):
  - fix issue with friends acl showing in group context
 

@@ -36,7 +36,7 @@ function update_content_access($user) {
 		'limit' => false
 	);
 
-	$batch = new ElggBatch('elgg_get_entities', $options);
+	$batch = new ElggBatch('elgg_get_entities_from_access_id', $options);
 	foreach ($batch as $e) {
 		$e->access_id = $user->friends_acl;
 		$e->save();
