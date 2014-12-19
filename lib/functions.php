@@ -36,6 +36,10 @@ function update_content_access($user) {
 		'limit' => false
 	);
 
+	// workaround for https://github.com/ColdTrick/file_tools/issues/49
+	elgg_unregister_event_handler("update", "object", "file_tools_object_handler");
+	elgg_unregister_event_handler("update", "object", "bookmark_tools_object_handler");
+	
 	$batch = new ElggBatch('elgg_get_entities_from_access_id', $options);
 	foreach ($batch as $e) {
 		$e->access_id = $user->friends_acl;
@@ -99,6 +103,11 @@ function _fix_content_access() {
 	$batch = new ElggBatch('elgg_get_entities', $options, null, 25, false);
 
 	elgg_set_plugin_setting('content_fix_time', time(), PLUGIN_ID);
+	
+	// workaround for https://github.com/ColdTrick/file_tools/issues/49
+	elgg_unregister_event_handler("update", "object", "file_tools_object_handler");
+	elgg_unregister_event_handler("update", "object", "bookmark_tools_object_handler");
+	
 
 	$count = 0;
 	foreach ($batch as $e) {
